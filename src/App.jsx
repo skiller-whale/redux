@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import Basket from "./Basket"
 import CheckoutButton from "./CheckoutButton"
 import ShopItem from "./ShopItem"
+import { getItemPrice, getItemList } from './items'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,23 +16,8 @@ class App extends React.Component {
     this.setItemCount = this.setItemCount.bind(this)
   }
 
-  getItemList() {
-    return ["Book", "Toy", "Car", "House"]
-  }
-
-  getItemPrice(item) {
-    const priceList = {
-      "Book": 10,
-      "Toy": 25,
-      "Car": 2500,
-      "House": 250000
-    }
-    return priceList[item]
-  }
-
   setItemCount(item, count) {
     const newBasket = Object.assign({}, this.state.basket)
-    const instance = this
 
     if(count > 0) {
       newBasket[item] = count
@@ -42,8 +28,8 @@ class App extends React.Component {
 
     let total = 0;
 
-    this.getItemList().forEach(function(item){
-      total += instance.getItemPrice(item) * (newBasket[item] || 0)
+    Object.keys(newBasket).forEach(function(item){
+      total += getItemPrice(item) * newBasket[item]
     })
 
     this.setState({basket: newBasket, total: total})
@@ -53,11 +39,11 @@ class App extends React.Component {
     const itemRows = []
     const instance = this
 
-    this.getItemList().forEach(function(item){
+    getItemList().forEach(function(item){
       itemRows.push(<div key={item} className="col-xs-3">
         <ShopItem
           name={item}
-          cost={instance.getItemPrice(item)}
+          cost={getItemPrice(item)}
           currentCount={instance.state.basket[item] || 0}
           countSetCallback={instance.setItemCount}
         />

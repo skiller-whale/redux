@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShopItem = ({name, cost, setBasketCount, currentCount, countSetCallback}) => {
+const ShopItem = ({name, cost, currentCount, countSetCallback}) => {
     const increment = () => countSetCallback(name, currentCount + 1)
     const decrement = () => countSetCallback(name, currentCount - 1)
 
