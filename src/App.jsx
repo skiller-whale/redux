@@ -43,7 +43,6 @@ class App extends React.Component {
       itemRows.push(<div key={item} className="col-xs-3">
         <ShopItem
           name={item}
-          cost={getItemPrice(item)}
           currentCount={instance.state.basket[item] || 0}
           countSetCallback={instance.setItemCount}
         />
