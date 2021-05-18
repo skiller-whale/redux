@@ -4703,7 +4703,7 @@ signal-exit@^3.0.0:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-skiller-whale-sync@^1.4.0:
+skiller-whale-sync@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/skiller-whale-sync/-/skiller-whale-sync-1.5.0.tgz#96c591c42be182dee8b5aee19873754f26300d05"
   integrity sha512-FZiHd+5kWNg0oYR+WqY0N6JfAP42948TO0Nlxp7najzpf03RDfvPA0VjPiVjEIBkJJ03hUrJd/Yg1C5XWxVMaA==
